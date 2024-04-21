@@ -1,2 +1,3 @@
 # webtech-projekt
-Webtech-projekt
+Massimo Diego Marsiglia und Thi Thanh Hang Truong
+
