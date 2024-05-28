@@ -1,20 +1,14 @@
 package com.example.demo;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.demo.LevelData.LevelData;
+import com.example.demo.LevelData.*;
+import java.io.IOException;
 
 @RestController
-@RequestMapping("/api")
 public class MyController {
 
     private final JsonFileReader jsonFileReader;
