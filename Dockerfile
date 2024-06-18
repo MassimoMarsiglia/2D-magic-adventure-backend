@@ -7,7 +7,7 @@ ARG DB_PORT
 ARG DB_NAME
 ARG SECRET_KEY
 ARG DB_USER
-RUN gradle build --no-daemon
+RUN gradle clean build --no-daemon
 
 FROM eclipse-temurin:21-jdk-jammy
 COPY --from=build /home/gradle/src/build/libs/demo-0.0.1-SNAPSHOT.jar app.jar
