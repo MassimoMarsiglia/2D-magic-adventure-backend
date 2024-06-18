@@ -9,7 +9,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-@ExtendWith(SpringExtension.class) // Use Spring's JUnit support
+// @ExtendWith(SpringExtension.class) // Use Spring's JUnit support
 @SpringBootTest // Load Spring context for testing
 public class DatabaseConnectionTest {
 
