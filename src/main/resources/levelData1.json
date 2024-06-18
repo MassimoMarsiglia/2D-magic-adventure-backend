@@ -9,7 +9,7 @@
             { "imagePath": "/assets/tiles/uniqueSand.png", "position": { "x": 160, "y": 0}, "collision": false },
             { "imagePath": "/assets/tiles/uniqueSand.png", "position": { "x": 200, "y": 0}, "collision": false },
             { "imagePath": "/assets/tiles/uniqueSand.png", "position": { "x": 240, "y": 0}, "collision": false },
-            { "imagePath": "/assets/tiles/uniqueSand.png", "position": { "x": 280, "y": 0}, "collision": false },
+            { "imagePath": "/assets/tiles/water.jpg", "position": { "x": 280, "y": 0}, "collision": false },
             { "imagePath": "/assets/tiles/uniqueSand.png", "position": { "x": 320, "y": 0}, "collision": false },
             { "imagePath": "/assets/tiles/uniqueSand.png", "position": { "x": 360, "y": 0}, "collision": false },
             { "imagePath": "/assets/tiles/uniqueSand.png", "position": { "x": 400, "y": 0}, "collision": false },
