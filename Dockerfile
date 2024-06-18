@@ -1,4 +1,4 @@
-FROM gradle:jdk21-jammy AS build
+FROM gradle:9.0-jdk17-openj9 as build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle build --no-daemon
