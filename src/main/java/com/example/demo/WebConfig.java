@@ -15,6 +15,7 @@ public class WebConfig  implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedMethods("*")
                 .allowedOrigins("http://localhost:5173",
-                "https://webtech-projekt-frontend.onrender.com/");
+                "https://webtech-projekt-frontend.onrender.com")
+                .allowCredentials(true);
     }
 }
