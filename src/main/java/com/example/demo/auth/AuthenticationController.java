@@ -30,12 +30,6 @@ public class AuthenticationController {
         cookie.setHttpOnly(true);
         cookie.setSecure(true); //disabled for development
         response.addCookie(cookie);
-        String setCookieHeader = String.format("%s=%s; Path=%s; Max-Age=%d; HttpOnly; SameSite=None",
-                cookie.getName(), cookie.getValue(), cookie.getPath(), cookie.getMaxAge());
-        if (cookie.getSecure()) {
-            setCookieHeader += "; Secure";
-        }
-        response.setHeader("Set-Cookie", setCookieHeader);
 
         return ResponseEntity.ok(authResponse);
     }
@@ -53,12 +47,6 @@ public class AuthenticationController {
         cookie.setHttpOnly(true); // Set the expiration time in seconds
         cookie.setSecure(true); //disabled for development
         response.addCookie(cookie);
-        String setCookieHeader = String.format("%s=%s; Path=%s; Max-Age=%d; HttpOnly; SameSite=None",
-                cookie.getName(), cookie.getValue(), cookie.getPath(), cookie.getMaxAge());
-        if (cookie.getSecure()) {
-            setCookieHeader += "; Secure";
-        }
-        response.setHeader("Set-Cookie", setCookieHeader);
 
         return ResponseEntity.ok(authResponse);
     }
