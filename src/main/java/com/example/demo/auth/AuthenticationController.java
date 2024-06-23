@@ -1,13 +1,14 @@
 package com.example.demo.auth;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseCookie;
+import org.springframework.http.HttpCookie;
 
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -19,35 +20,43 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
-        @RequestBody RegisterRequest request,
-        HttpServletResponse response) {
-        // return ResponseEntity.ok(service.register(request));
+        @RequestBody RegisterRequest request) {
         AuthenticationResponse authResponse = service.register(request);
         
-        Cookie cookie = new Cookie("jwtToken", authResponse.getToken());
-        cookie.setPath("/"); // Specify the path where the cookie is valid, "/" means the whole application
-        cookie.setMaxAge(24 * 60 * 60); // Set the expiration time in seconds
-        cookie.setHttpOnly(true);
-        cookie.setSecure(true); //disabled for development
-        response.addCookie(cookie);
+        ResponseCookie cookie = ResponseCookie.from("jwtToken", authResponse.getToken())
+                .path("/") // Specify the path where the cookie is valid, "/" means the whole application
+                .maxAge(24 * 60 * 60) // Set the expiration time in seconds
+                .httpOnly(true)
+                .secure(true) // uncomment to deploy
+                .sameSite("None") // uncomment to deploy
+                .build();
 
-        return ResponseEntity.ok(authResponse);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(authResponse);
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> register(
-        @RequestBody AuthenticationRequest request,
-        HttpServletResponse response) {
-        // return ResponseEntity.ok(service.authenticate(request));
+    public ResponseEntity<AuthenticationResponse> authenticate(
+        @RequestBody AuthenticationRequest request) {
         AuthenticationResponse authResponse = service.authenticate(request);
 
-        Cookie cookie = new Cookie("jwtToken", authResponse.getToken());
-        cookie.setPath("/"); // Specify the path where the cookie is valid, "/" means the whole application
-        cookie.setMaxAge(24 * 60 * 60);
-        cookie.setHttpOnly(true); // Set the expiration time in seconds
-        cookie.setSecure(true); //disabled for development
-        response.addCookie(cookie);
+        ResponseCookie cookie = ResponseCookie.from("jwtToken", authResponse.getToken())
+                .path("/") // Specify the path where the cookie is valid, "/" means the whole application
+                .maxAge(24 * 60 * 60) // Set the expiration time in seconds
+                .httpOnly(true)
+                .secure(true) // uncomment to deploy
+                .sameSite("None") // uncomment to deploy
+                .build();
 
-        return ResponseEntity.ok(authResponse);
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
+
+        return ResponseEntity.ok()
+                .headers(headers)
+                .body(authResponse);
     }
 }
