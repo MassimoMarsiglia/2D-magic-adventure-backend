@@ -23,19 +23,19 @@ public class AuthenticationController {
         @RequestBody RegisterRequest request) {
         AuthenticationResponse authResponse = service.register(request);
         
-        ResponseCookie cookie = ResponseCookie.from("jwtToken", authResponse.getToken())
-                .path("/") // Specify the path where the cookie is valid, "/" means the whole application
-                .maxAge(24 * 60 * 60) // Set the expiration time in seconds
-                .httpOnly(true)
-                .secure(true) // uncomment to deploy
-                .sameSite("None") // uncomment to deploy
-                .build();
+        // ResponseCookie cookie = ResponseCookie.from("jwtToken", authResponse.getToken())
+        //         .path("/") // Specify the path where the cookie is valid, "/" means the whole application
+        //         .maxAge(24 * 60 * 60) // Set the expiration time in seconds
+        //         .httpOnly(true)
+        //         // .secure(true) // uncomment to deploy
+        //         // .sameSite("None") // uncomment to deploy
+        //         .build();
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
+        // HttpHeaders headers = new HttpHeaders();
+        // headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
 
         return ResponseEntity.ok()
-                .headers(headers)
+                // .headers(headers)
                 .body(authResponse);
     }
 
@@ -44,19 +44,19 @@ public class AuthenticationController {
         @RequestBody AuthenticationRequest request) {
         AuthenticationResponse authResponse = service.authenticate(request);
 
-        ResponseCookie cookie = ResponseCookie.from("jwtToken", authResponse.getToken())
-                .path("/") // Specify the path where the cookie is valid, "/" means the whole application
-                .maxAge(24 * 60 * 60) // Set the expiration time in seconds
-                .httpOnly(true)
-                .secure(true) // uncomment to deploy
-                .sameSite("None") // uncomment to deploy
-                .build();
+        // ResponseCookie cookie = ResponseCookie.from("jwtToken", authResponse.getToken())
+        //         .path("/") // Specify the path where the cookie is valid, "/" means the whole application
+        //         .maxAge(24 * 60 * 60) // Set the expiration time in seconds
+        //         .httpOnly(true)
+        //         // .secure(true) // uncomment to deploy
+        //         // .sameSite("None") // uncomment to deploy
+        //         .build();
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
+        // HttpHeaders headers = new HttpHeaders();
+        // headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
 
         return ResponseEntity.ok()
-                .headers(headers)
+                // .headers(headers)
                 .body(authResponse);
     }
 }
