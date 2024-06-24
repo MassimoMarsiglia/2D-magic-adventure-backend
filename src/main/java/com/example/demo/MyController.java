@@ -27,4 +27,12 @@ public class MyController {
             return ResponseEntity.status(500).body(null);
         }
     }
+
+    //validates token as all endpoints in this controller are protected by the jwtAuthenticationFilter
+    //meaning the request has to pass the filter to get a response code of 200 thefore indicating
+    //that the token is valid
+    @GetMapping("/validateToken")
+    public ResponseEntity<String> validateToken() {
+        return ResponseEntity.ok("authenticated");
+    }
 }
