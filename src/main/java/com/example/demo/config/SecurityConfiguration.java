@@ -24,7 +24,7 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(AbstractHttpConfigurer::disable)
-            .authorizeHttpRequests(authorize -> authorize.requestMatchers("/api/v1/auth/**","/swagger-ui/**","/v3/api-docs/**").permitAll() //methods within this controller can be accessed without key
+            .authorizeHttpRequests(authorize -> authorize.requestMatchers("/api/v1/auth/**","/swagger-ui/**","/v3/api-docs/**", "https://webtech-projekt-frontend.onrender.com/").permitAll() //methods within this controller can be accessed without key
                 .anyRequest()
                 .authenticated()
             )
