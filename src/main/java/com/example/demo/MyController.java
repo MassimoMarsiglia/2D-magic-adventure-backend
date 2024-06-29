@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,20 +8,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.LevelData.*;
-import com.example.demo.auth.AuthenticationService;
-import com.example.demo.config.JwtService;
-import com.example.demo.user.User;
 import com.example.demo.user.UserKeyBindsService;
-import com.example.demo.user.UserKeybinds;
-import com.example.demo.user.UserKeybindsRepository;
 import com.example.demo.user.UserKeybindsRequest;
-import com.example.demo.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
