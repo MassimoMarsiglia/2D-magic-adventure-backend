@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.LevelData.*;
-import com.example.demo.user.UserKeyBindsService;
-import com.example.demo.user.UserKeybindsRequest;
+import com.example.demo.user.UserKeybinds.UserKeyBindsService;
+import com.example.demo.user.UserKeybinds.UserKeybindsRequest;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,8 +27,10 @@ public class MyController {
     public ResponseEntity<LevelData> getLevelData(@RequestParam("level") String fileName) {
         try {
             LevelData levelData = jsonFileReader.readLevelDataFromFile(fileName);
+            System.out.println("hey" + levelData);
             return ResponseEntity.ok(levelData);
         } catch (IOException e) {
+            e.printStackTrace();
             return ResponseEntity.status(500).body(null);
         }
     }

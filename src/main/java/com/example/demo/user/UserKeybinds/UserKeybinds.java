@@ -1,9 +1,11 @@
-package com.example.demo.user;
+package com.example.demo.user.UserKeybinds;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import com.example.demo.user.User;
 
 import jakarta.persistence.*;
 

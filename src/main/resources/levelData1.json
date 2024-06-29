@@ -1121,5 +1121,24 @@
         { "imagePath": "/assets/tiles/sign_2.png", "position": { "x": 1320, "y": 550}, "collision": true },
 
         { "imagePath": "/assets/tiles/grass1.png", "position": { "x": 1400, "y": 650}, "collision": false }
+    ],
+    
+    "objects": [
+        { "type": "gun", "position": { "x": 1200, "y": 20 }, "collected": false },
+        { "type": "coin", "position": { "x": 1000, "y": 20 }, "collected": false },
+        { "type": "coin", "position": { "x": 900, "y": 20 }, "collected": false },
+        { "type": "coin", "position": { "x": 950, "y": 20 }, "collected": false },
+        { "type": "coin", "position": { "x": 550, "y": 200 }, "collected": false },
+        { "type": "coin", "position": { "x": 600, "y": 200 }, "collected": false },
+        { "type": "coin", "position": { "x": 950, "y": 500 }, "collected": false },
+        { "type": "coin", "position": { "x": 300, "y": 480 }, "collected": false },
+        { "type": "coin", "position": { "x": 250, "y": 480 }, "collected": false },
+        { "type": "coin", "position": { "x": 0, "y": 130 }, "collected": false },
+        { "type": "coin", "position": { "x": 200, "y": 0 }, "collected": false },
+        { "type": "coin", "position": { "x": 360, "y": 150 }, "collected": false },
+        { "type": "coin", "position": { "x": 1150, "y": 350 }, "collected": false },
+        { "type": "coin", "position": { "x": 1150, "y": 320 }, "collected": false },
+        { "type": "kevin", "position": { "x": 1250, "y": 490 }, "collected": false }
     ]
+    
 }

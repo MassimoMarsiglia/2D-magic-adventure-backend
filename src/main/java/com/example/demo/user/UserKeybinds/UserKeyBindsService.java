@@ -1,4 +1,4 @@
-package com.example.demo.user;
+package com.example.demo.user.UserKeybinds;
 
 import java.util.Map;
 import java.util.Optional;
@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.config.JwtService;
+import com.example.demo.user.User;
+import com.example.demo.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
