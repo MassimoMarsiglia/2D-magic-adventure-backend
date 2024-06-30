@@ -1064,6 +1064,20 @@
         { "type": "coin", "position": { "x": 1000, "y": 20 }, "collected": false },
         { "type": "coin", "position": { "x": 900, "y": 20 }, "collected": false },
         { "type": "kevin", "position": { "x": 630, "y": 510 }, "collected": false, "nextLevel": "levelData2.json" }
+    ],
+
+    "spawnableTiles": [
+        {"position": {"x":222 , "y": 480 }},
+        {"position": {"x":500 , "y": 170}},
+        {"position": {"x":200 , "y": 390 }},
+        {"position": {"x":520 , "y": 145 }},
+        {"position": {"x":1300 , "y": 550 }},
+        {"position": {"x":1230 , "y": 100 }},
+        {"position": {"x":975 , "y": 435 }},
+        {"position": {"x":330 , "y": 450 }},
+        {"position": {"x":285 , "y": 350 }},
+        {"position": {"x":1145 , "y": 30 }},
+        {"position": {"x":770 , "y": 5 }}
     ]
     
 }

@@ -7,15 +7,25 @@ public class LevelData {
     private int requiredCoins;
 
     private List<Tile> tiles;
+    private List<SpawnableTile> spawnableTiles;
     private List<Objects> objects;
 
     // Constructors, getters, and setters
     public LevelData() {}
 
-    public LevelData(List<Tile> tiles, List<Objects> objects, int requiredCoins) {
+    public LevelData(List<Tile> tiles, List<Objects> objects, int requiredCoins, List<SpawnableTile> spawnableTiles) {
         this.tiles = tiles;
         this.objects = objects;
         this.requiredCoins = requiredCoins;
+        this.spawnableTiles = spawnableTiles;
+    }
+
+    public List<SpawnableTile> getSpawnableTiles() {
+        return spawnableTiles;
+    }
+
+    public void setSpawnableTiles(List<SpawnableTile> spawnableTiles){
+        this.spawnableTiles = spawnableTiles;
     }
 
     public List<Tile> getTiles() {
