@@ -18,6 +18,7 @@
 // import org.mockito.Mockito;
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+// import org.springframework.boot.test.context.SpringBootTest;
 // import org.springframework.boot.test.mock.mockito.MockBean;
 // import org.springframework.http.MediaType;
 // import org.springframework.http.ResponseEntity;
@@ -35,28 +36,28 @@
 // import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 // @ActiveProfiles("test")
-// @WebMvcTest(MyController.class)
+// @SpringBootTest
 // public class MyControllerTest {
 
 //     @Autowired
 //     private MockMvc mockMvc;
 
-//     @MockBean
+//     @Autowired
 //     private UserKeyBindsService userKeyBindsService;
 
-//     @MockBean
+//     @Autowired
 //     private JwtAuthenticationFilter jwtAuthenticationFilter;
 
-//     @MockBean
+//     @Autowired
 //     private JsonFileReader jsonFileReader;
 
-//     @MockBean
+//     @Autowired
 //     private UserRepository userRepository;
 
 //     @Autowired
 //     private ObjectMapper objectMapper;
 
-//     private String validJwtToken = "valid-token";
+//     private String validJwtToken;
 
 //     @BeforeEach
 //     public void setup() throws JsonProcessingException, Exception {
@@ -78,9 +79,6 @@
 
 //     @Test
 //     public void testGetLevelData_success() throws Exception {
-//         LevelData mockLevelData = new LevelData();
-//         when(jsonFileReader.readLevelDataFromFile("level1.json")).thenReturn(mockLevelData);
-
 //         mockMvc.perform(MockMvcRequestBuilders.get("/levelData")
 //                     .param("level", "level1.json")
 //                     .header("Authorization", "Bearer " + validJwtToken))
