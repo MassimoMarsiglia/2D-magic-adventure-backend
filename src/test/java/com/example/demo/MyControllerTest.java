@@ -2,8 +2,12 @@
 
 // import com.example.demo.auth.*;
 // import com.example.demo.config.*;
+// import com.example.demo.user.UserRepository;
 // import com.example.demo.user.UserKeybinds.UserKeyBindsService;
 // import com.example.demo.user.UserKeybinds.UserKeybindsRequest;
+// import com.fasterxml.jackson.core.JsonProcessingException;
+// import com.fasterxml.jackson.databind.JsonNode;
+// import com.fasterxml.jackson.databind.ObjectMapper;
 
 // import jakarta.servlet.http.Cookie;
 
@@ -17,8 +21,11 @@
 // import org.springframework.boot.test.mock.mockito.MockBean;
 // import org.springframework.http.MediaType;
 // import org.springframework.http.ResponseEntity;
+// import org.springframework.test.context.ActiveProfiles;
 // import org.springframework.test.web.servlet.MockMvc;
+// import org.springframework.test.web.servlet.MvcResult;
 // import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+// import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 // import java.io.IOException;
 
@@ -27,6 +34,7 @@
 // import static org.mockito.Mockito.when;
 // import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+// @ActiveProfiles("test")
 // @WebMvcTest(MyController.class)
 // public class MyControllerTest {
 
@@ -42,10 +50,30 @@
 //     @MockBean
 //     private JsonFileReader jsonFileReader;
 
+//     @MockBean
+//     private UserRepository userRepository;
+
+//     @Autowired
+//     private ObjectMapper objectMapper;
+
 //     private String validJwtToken = "valid-token";
 
 //     @BeforeEach
-//     public void setup() {
+//     public void setup() throws JsonProcessingException, Exception {
+//         // Clear existing data
+//         userRepository.deleteAll();
+
+//         // Register test user
+//         RegisterRequest registerRequest = new RegisterRequest("John Doe", "john@example.com", "password");
+//         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/auth/register")
+//                         .contentType(MediaType.APPLICATION_JSON)
+//                         .content(objectMapper.writeValueAsString(registerRequest)))
+//                 .andExpect(MockMvcResultMatchers.status().isOk())
+//                 .andReturn();
+
+//         String responseContent = result.getResponse().getContentAsString();
+//         JsonNode responseJson = objectMapper.readTree(responseContent);
+//         validJwtToken = responseJson.get("token").asText();
 //     }
 
 //     @Test
@@ -54,9 +82,10 @@
 //         when(jsonFileReader.readLevelDataFromFile("level1.json")).thenReturn(mockLevelData);
 
 //         mockMvc.perform(MockMvcRequestBuilders.get("/levelData")
-//                         .param("level", "level1.json"))
-//                 .andExpect(status().isOk())
-//                 .andExpect(jsonPath("$.yourField").value("yourValue")); // Adjust jsonPath according to your LevelData fields
+//                     .param("level", "level1.json")
+//                     .header("Authorization", "Bearer " + validJwtToken))
+//             .andExpect(status().isOk())
+//             .andExpect(jsonPath("$.yourField").value("yourValue")); // Adjust jsonPath according to your LevelData fields
 //     }
 
 //     @Test
