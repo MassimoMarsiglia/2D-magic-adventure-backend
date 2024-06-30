@@ -1,10 +1,12 @@
 package com.example.demo;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.LevelData.*;
@@ -44,13 +46,42 @@ public class MyController {
     }
 
     @GetMapping("/getKeybinds")
-    public ResponseEntity<?> getKeybinds(@CookieValue(name = "jwtToken") String token) {
+    public ResponseEntity<?> getKeybinds(@CookieValue(name = "jwtToken", required = false) String cookieToken,
+                                         @RequestHeader(name = "Authorization", required = false) String bearerToken) {
+        
+        String token = null;
+        // Check if the token is present in the cookie
+        if (cookieToken != null) {
+            token = cookieToken;
+        }
+        // If token is not found in cookie, check Authorization header
+        if (token == null && bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            token = bearerToken.substring(7); // Extract token excluding "Bearer "
+        }
+        // If token is still null, handle accordingly (return an error, for example)
+        if (token == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
         return userKeyBindsService.getKeyBindings(token);
     }
     @PostMapping("/saveKeybinds")
-    public ResponseEntity<String> saveKeybinds(@CookieValue(name = "jwtToken") String token,
+    public ResponseEntity<String> saveKeybinds(@CookieValue(name = "jwtToken", required = false) String cookieToken,
+                                               @RequestHeader(name = "Authorization", required = false) String bearerToken,
                                                @RequestBody UserKeybindsRequest keybindsDTO) {
-    return userKeyBindsService.saveUserKeybinds(token, keybindsDTO);
+        String token = null;
+        // Check if the token is present in the cookie
+        if (cookieToken != null) {
+            token = cookieToken;
+        }
+        // If token is not found in cookie, check Authorization header
+        if (token == null && bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            token = bearerToken.substring(7); // Extract token excluding "Bearer "
+        }
+        // If token is still null, handle accordingly (return an error, for example)
+        if (token == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        return userKeyBindsService.saveUserKeybinds(token, keybindsDTO);
     }
 }
 
