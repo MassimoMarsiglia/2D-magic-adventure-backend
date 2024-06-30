@@ -1016,11 +1016,11 @@
 { "imagePath": "/assets/tiles/bridge2.png", "position": { "x": 1125, "y": 580}, "collision": false },
 
 { "imagePath": "/assets/tiles/boat1_left_up.png", "position": { "x": 575, "y": 500}, "collision": true },
-{ "imagePath": "/assets/tiles/boat1_left_down.png", "position": { "x": 575, "y": 550}, "collision": true },
-{ "imagePath": "/assets/tiles/boat1_middle1_up.png", "position": { "x": 625, "y": 510}, "collision": true },
-{ "imagePath": "/assets/tiles/boat1_middle1_down.png", "position": { "x": 625, "y": 552}, "collision": true },
+{ "imagePath": "/assets/tiles/boat1_left_down.png", "position": { "x": 575, "y": 550}, "collision": false },
+{ "imagePath": "/assets/tiles/boat1_middle1_up.png", "position": { "x": 625, "y": 510}, "collision": false },
+{ "imagePath": "/assets/tiles/boat1_middle1_down.png", "position": { "x": 625, "y": 552}, "collision": false },
 { "imagePath": "/assets/tiles/boat1_middle2_up.png", "position": { "x": 675, "y": 500}, "collision": true },
-{ "imagePath": "/assets/tiles/boat1_middle2_down.png", "position": { "x": 675, "y": 550}, "collision": true },
+{ "imagePath": "/assets/tiles/boat1_middle2_down.png", "position": { "x": 675, "y": 550}, "collision": false },
 { "imagePath": "/assets/tiles/boat1_right_up.png", "position": { "x": 725, "y": 500}, "collision": true },
 { "imagePath": "/assets/tiles/boat1_right_down.png", "position": { "x": 725, "y": 550}, "collision": true },
 { "imagePath": "/assets/tiles/boat_stick1.png", "position": { "x": 585, "y": 480}, "collision": true },
@@ -1030,11 +1030,11 @@
 { "imagePath": "/assets/tiles/boat_tip.png", "position": { "x": 525, "y": 500}, "collision": true },
 
 { "imagePath": "/assets/tiles/boat1_left_up.png", "position": { "x": 1075, "y": 500}, "collision": true },
-{ "imagePath": "/assets/tiles/boat1_left_down.png", "position": { "x": 1075, "y": 550}, "collision": true },
-{ "imagePath": "/assets/tiles/boat1_middle1_up.png", "position": { "x": 1125, "y": 510}, "collision": true },
-{ "imagePath": "/assets/tiles/boat1_middle1_down.png", "position": { "x": 1125, "y": 552}, "collision": true },
+{ "imagePath": "/assets/tiles/boat1_left_down.png", "position": { "x": 1075, "y": 550}, "collision": false },
+{ "imagePath": "/assets/tiles/boat1_middle1_up.png", "position": { "x": 1125, "y": 510}, "collision": false },
+{ "imagePath": "/assets/tiles/boat1_middle1_down.png", "position": { "x": 1125, "y": 552}, "collision": false },
 { "imagePath": "/assets/tiles/boat1_middle2_up.png", "position": { "x": 1175, "y": 500}, "collision": true },
-{ "imagePath": "/assets/tiles/boat1_middle2_down.png", "position": { "x": 1175, "y": 550}, "collision": true },
+{ "imagePath": "/assets/tiles/boat1_middle2_down.png", "position": { "x": 1175, "y": 550}, "collision": false },
 { "imagePath": "/assets/tiles/boat1_right_up.png", "position": { "x": 1225, "y": 500}, "collision": true },
 { "imagePath": "/assets/tiles/boat1_right_down.png", "position": { "x": 1225, "y": 550}, "collision": true },
 { "imagePath": "/assets/tiles/boat_stick1.png", "position": { "x": 1085, "y": 480}, "collision": true },
@@ -1062,18 +1062,7 @@
         { "type": "gun", "position": { "x": 1200, "y": 20 }, "collected": false },
         { "type": "coin", "position": { "x": 1000, "y": 20 }, "collected": false },
         { "type": "coin", "position": { "x": 900, "y": 20 }, "collected": false },
-        { "type": "coin", "position": { "x": 950, "y": 20 }, "collected": false },
-        { "type": "coin", "position": { "x": 550, "y": 200 }, "collected": false },
-        { "type": "coin", "position": { "x": 600, "y": 200 }, "collected": false },
-        { "type": "coin", "position": { "x": 950, "y": 500 }, "collected": false },
-        { "type": "coin", "position": { "x": 300, "y": 480 }, "collected": false },
-        { "type": "coin", "position": { "x": 250, "y": 480 }, "collected": false },
-        { "type": "coin", "position": { "x": 0, "y": 130 }, "collected": false },
-        { "type": "coin", "position": { "x": 200, "y": 0 }, "collected": false },
-        { "type": "coin", "position": { "x": 360, "y": 150 }, "collected": false },
-        { "type": "coin", "position": { "x": 1150, "y": 350 }, "collected": false },
-        { "type": "coin", "position": { "x": 1150, "y": 320 }, "collected": false },
-        { "type": "kevin", "position": { "x": 1250, "y": 490 }, "collected": false }
+        { "type": "kevin", "position": { "x": 630, "y": 510 }, "collected": false }
     ]
     
 }
