@@ -27,9 +27,9 @@ public class AuthenticationController {
                 .maxAge(24 * 60 * 60) // Set the expiration time in seconds
                 .httpOnly(true)
                 .secure(true) // uncomment to deploy
-                .sameSite("None") // uncomment to deploy
-                .build();
-
+                .sameSite("None") //sameSite set to "None" because render free tier doesnt let you host frontend and backend
+                .build();                  //on the same domain without purchasing and setting up your own domain. In an actual deployment 
+                                           //with a proper domain setup sameSite should be set to strict for security reasons
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
 
@@ -48,9 +48,9 @@ public class AuthenticationController {
                 .maxAge(24 * 60 * 60) // Set the expiration time in seconds
                 .httpOnly(true)
                 .secure(true) // uncomment to deploy
-                .sameSite("None") // uncomment to deploy
-                .build();
-
+                .sameSite("None") //sameSite set to "None" because render free tier doesnt let you host frontend and backend
+                .build();                  //on the same domain without purchasing and setting up your own domain in an actual deployment 
+                                           //with a proper domain setup sameSite should be set to strict for security reasons
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.SET_COOKIE, cookie.toString());
 

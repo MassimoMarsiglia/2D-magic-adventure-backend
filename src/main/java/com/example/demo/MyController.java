@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.LevelData.*;
+import com.example.demo.Playerdata.PlayerDataRequest;
+import com.example.demo.Playerdata.PlayerDataService;
 import com.example.demo.user.UserKeybinds.UserKeyBindsService;
 import com.example.demo.user.UserKeybinds.UserKeybindsRequest;
 
@@ -24,6 +26,8 @@ public class MyController {
     private final UserKeyBindsService userKeyBindsService;
 
     private final JsonFileReader jsonFileReader;
+
+    private final PlayerDataService playerDataService;
 
     @GetMapping("/levelData")
     public ResponseEntity<LevelData> getLevelData(@RequestParam("level") String fileName) {
@@ -82,6 +86,44 @@ public class MyController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         return userKeyBindsService.saveUserKeybinds(token, keybindsDTO);
+    }
+    @PostMapping("/savePlayerData")
+    public ResponseEntity<String> savePlayerData(@CookieValue(name = "jwtToken", required = false) String cookieToken,
+                                               @RequestHeader(name = "Authorization", required = false) String bearerToken,
+                                               @RequestBody PlayerDataRequest playerData) {
+        String token = null;
+        // Check if the token is present in the cookie
+        if (cookieToken != null) {
+            token = cookieToken;
+        }
+        // If token is not found in cookie, check Authorization header
+        if (token == null && bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            token = bearerToken.substring(7); // Extract token excluding "Bearer "
+        }
+        // If token is still null, handle accordingly (return an error, for example)
+        if (token == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        return playerDataService.savePlayerData(token, playerData);
+    }
+    @GetMapping("/getPlayerData")
+    public ResponseEntity<?> getPlayerData(@CookieValue(name = "jwtToken", required = false) String cookieToken,
+                                         @RequestHeader(name = "Authorization", required = false) String bearerToken) {
+        
+        String token = null;
+        // Check if the token is present in the cookie
+        if (cookieToken != null) {
+            token = cookieToken;
+        }
+        // If token is not found in cookie, check Authorization header
+        if (token == null && bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            token = bearerToken.substring(7); // Extract token excluding "Bearer "
+        }
+        // If token is still null, handle accordingly (return an error, for example)
+        if (token == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        return playerDataService.getPlayerData(token);
     }
 }
 

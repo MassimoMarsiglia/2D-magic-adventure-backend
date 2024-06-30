@@ -1,4 +1,5 @@
 {
+    "requiredCoins": 10,
     "tiles": [
         
             
@@ -1062,7 +1063,7 @@
         { "type": "gun", "position": { "x": 1200, "y": 20 }, "collected": false },
         { "type": "coin", "position": { "x": 1000, "y": 20 }, "collected": false },
         { "type": "coin", "position": { "x": 900, "y": 20 }, "collected": false },
-        { "type": "kevin", "position": { "x": 630, "y": 510 }, "collected": false }
+        { "type": "kevin", "position": { "x": 630, "y": 510 }, "collected": false, "nextLevel": "levelData2.json" }
     ]
     
 }

@@ -3,15 +3,19 @@ package com.example.demo.LevelData;
 import java.util.List;
 
 public class LevelData {
+
+    private int requiredCoins;
+
     private List<Tile> tiles;
     private List<Objects> objects;
 
     // Constructors, getters, and setters
     public LevelData() {}
 
-    public LevelData(List<Tile> tiles, List<Objects> objects) {
+    public LevelData(List<Tile> tiles, List<Objects> objects, int requiredCoins) {
         this.tiles = tiles;
         this.objects = objects;
+        this.requiredCoins = requiredCoins;
     }
 
     public List<Tile> getTiles() {
@@ -28,5 +32,13 @@ public class LevelData {
 
     public void setObjects(List<Objects> objects) {
         this.objects = objects;
+    }
+
+    public int getRequiredCoins() {
+        return requiredCoins;
+    }
+
+    public void setRequiredCoins(int requiredCoins) {
+        this.requiredCoins = requiredCoins;
     }
 }

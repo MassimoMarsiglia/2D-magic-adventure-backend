@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.example.demo.Playerdata.PlayerData;
 import com.example.demo.user.UserKeybinds.UserKeybinds;
 
 import jakarta.persistence.*;
@@ -39,6 +40,9 @@ public class User implements UserDetails {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private UserKeybinds keybinds;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private PlayerData playerData;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
